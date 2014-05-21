@@ -6,8 +6,8 @@ package edu.dio.calendar;
 public class CalendarService {
     private EventStore store;
 
-    public CalendarService() {
-        store = new EventStore();
+    public CalendarService(EventStore store) {
+        this.store = store;
     }
 
     public void add(CalendarEvent event) {
@@ -15,7 +15,15 @@ public class CalendarService {
     }
 
     public int indexOf(CalendarEvent event) {
-        return store.indexOf(event);
+        return (event==null)?-1:store.indexOf(event);
+    }
+
+    public CalendarEvent getEventByTitle(String title) {
+        return store.getEvent(title);
+    }
+
+    public CalendarEvent getEventByTitleAndDescription(String title, String description) {
+        return store.getEvent(title, description);
     }
 
     public String toString() {

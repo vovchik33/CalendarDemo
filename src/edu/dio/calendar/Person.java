@@ -87,8 +87,9 @@ public class Person {
             this.mail = person.mail;
         }
 
-        public void setId(UUID id) {
+        public Builder setId(UUID id) {
             this.id = id;
+            return this;
         }
 
         public Builder setFirstName(String firstName) {
